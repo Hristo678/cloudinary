@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/cloudinary?useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
+    username: root
+    password: root
+  sql:
+    init:
+      mode: always
+  jpa:
+    # Choose either MySQL 8 or MySQL 5 below
+    # For MySQL 8
+    #database-platform: org.hibernate.dialect.MySQL8Dialect
+    #For MySQL 5
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+cloudinary:
+  api-key: 776615856136547
+  api-secret: ${CLOUDINARY_API_SECRET}
+  cloud-name: ditaldvoc
+
+logging:
+  level:
+    org: WARN
+    blog: WARN
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+
+

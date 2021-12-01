@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<body>
+
+
+<div class="container-fluid">
+    <h5 class="text-center text-white mt-5">Welcome to Cloudinary
+        <span class="text-white"
+        >
+              </span>
+    </h5>
+
+</div>
+
+
+    <div th:each="p : ${pictures}" >
+        <img th:src="${p.getUrl()}" alt="">
+        <form action=""></form>
+        <form th:action="@{/pictures/delete}" th:method="delete">
+            <input type="hidden" name="public_id" th:value="${p.getPublicId()}">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+
+
+</body>
+</html>
