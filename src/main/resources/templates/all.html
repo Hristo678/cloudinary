@@ -17,7 +17,7 @@
 
 
     <div th:each="p : ${pictures}" >
-        <img th:src="${p.getUrl()}" alt="">
+        <img th:src="${p.getUrl()}" src="/" alt="">
         <form action=""></form>
         <form th:action="@{/pictures/delete}" th:method="delete">
             <input type="hidden" name="public_id" th:value="${p.getPublicId()}">
